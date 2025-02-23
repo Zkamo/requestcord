@@ -114,5 +114,5 @@ Bypassed Onboarding!
 ## Credits
 
 - `Developer & Owner` - Zkamo
-- `Special Thanks` - cf-vatos
+- `Special Thanks & Developer` - cf-vatos
 
