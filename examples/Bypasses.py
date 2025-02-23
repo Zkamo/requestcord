@@ -19,7 +19,7 @@ if onboarding_data:
         guild_id=guild_id_with_onboarding
     )
     if success:
-        print("Joined server bypassing onboarding!")
+        print("Bypassed onboarding!")
 else:
     print("Server doesn't have onboarding requirements")
 
