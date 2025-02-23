@@ -7,6 +7,9 @@
 
   <p align="center">
     Requestcord - Discord API Wrapper
+    <br/>
+    <br/>
+    <a href="https://www.requestcord.eu/">Our Website</a>
   </p>
 </p>
 <br/>
