@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/cf-vatos/Discord-Selfbot">
+  <a href="https://pypi.org/project/requestcord/">
     <img src="https://cdn3.emoji.gg/emojis/4592-developer-purple.png" alt="Logo" witdth width="120" height="120">
   </a>
 
