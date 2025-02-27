@@ -10,6 +10,7 @@
     <br/>
     <br/>
     <a href="https://www.requestcord.eu/">Our Website</a>
+   <a href="https://www.requestcord.eu/docs.html">Documentation</a> 
   </p>
 </p>
 <br/>
