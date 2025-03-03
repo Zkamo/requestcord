@@ -15,6 +15,9 @@
 </p>
 <br/>
 
+## Updates
+- **15 Stars ⭐** - Full Release of Requestcord
+- 
 ## Key Features
   - `Unofficial API Wrapper` – Interact with Discord without official limitations.
   - `Automatic Header Building` – No need to manually set headers.
