@@ -15,9 +15,6 @@
 </p>
 <br/>
 
-## Updates
-- **15 Stars ⭐** - Full Release of Requestcord
-- 
 ## Key Features
   - `Unofficial API Wrapper` – Interact with Discord without official limitations.
   - `Automatic Header Building` – No need to manually set headers.
@@ -26,6 +23,9 @@
   - `Async Support` – Fully asyncio compatible for smooth operations.
   - `WebSocket & REST API` – Seamless communication with Discord’s services.
 
+## Updates
+- **15 Stars ⭐** - Full Release of Requestcord
+  
 ## Installing
 - Python **3.8 or higher** is required.
 - A **virtual environment** is recommended, especially on Linux.
