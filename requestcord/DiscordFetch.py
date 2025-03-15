@@ -4,7 +4,7 @@ from re          import   findall, search
 from curl_cffi   import   requests
 from websocket   import   WebSocket
 
-from requestcord import   Logger, Build
+from requestcord import   Logger
 
 logger = Logger(level='INF')
 
