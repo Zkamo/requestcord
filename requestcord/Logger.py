@@ -1,4 +1,5 @@
-from requestcord import *
+from datetime import datetime
+from colorama import Fore, Style
 
 class Logger:
     LOG_LEVELS = {
@@ -6,7 +7,8 @@ class Logger:
         'INF': 2,
         'SUC': 3,
         'INP': 4,
-        'ERR': 5
+        'ERR': 5,
+        'OFF': 6
     }
 
     def __init__(self, level='INF', log_format=None):
