@@ -1,56 +1,111 @@
 from requestcord import ProfileEditor, ServerEditor
 
-# Profile Editor Examples (works without Nitro)
+# Initialize editors with optional logger
+profile_editor = ProfileEditor()
+server_editor = ServerEditor()
+
+# Optional proxy configuration
+proxy = {
+    "http": "http://username:password@proxy_ip:port",
+    "https": "http://username:password@proxy_ip:port"
+}
+
+# Profile Editor Examples
 # ------------------------
 
-# 1. Change global avatar (profile picture)
-ProfileEditor.change_avatar(
+# 1. Change global avatar with optional proxy
+avatar_response = profile_editor.change_avatar(
     token="USER_TOKEN_HERE",
-    link="https://example.com/new_avatar.png"
+    link="https://example.com/new_avatar.png",
+    proxy=proxy  # Remove this parameter if not using proxy
 )
 
-# 2. Change display name (global name)
-ProfileEditor.change_display(
+if avatar_response['success']:
+    print("✅ Avatar updated successfully!")
+    print(f"New avatar hash: {avatar_response['data'].get('avatar')}")
+else:
+    print(f"❌ Avatar update failed: {avatar_response['error']['message']}")
+
+# 2. Change display name
+display_response = profile_editor.change_display(
     token="USER_TOKEN_HERE",
     name="New Display Name"
 )
 
-# 3. Change pronouns (appears in profile)
-ProfileEditor.change_pronouns(
+if display_response['success']:
+    print("✅ Display name updated successfully!")
+    print(f"New display name: {display_response['data'].get('global_name')}")
+else:
+    print(f"❌ Display name update failed: {display_response['error']['message']}")
+
+# 3. Update pronouns through proxy
+pronouns_response = profile_editor.change_pronouns(
     token="USER_TOKEN_HERE",
-    pronouns="they/them"
+    pronouns="Request/Cord",
+    proxy=proxy  # Works with or without this parameter
 )
 
-# 4. Change About Me section (bio)
-ProfileEditor.change_about_me(
+if pronouns_response['success']:
+    print("✅ Pronouns updated successfully!")
+    print(f"New pronouns: {pronouns_response['data'].get('pronouns')}")
+else:
+    print(f"❌ Pronouns update failed: {pronouns_response['error']['message']}")
+
+# 4. Change About Me section
+bio_response = profile_editor.change_about_me(
     token="USER_TOKEN_HERE",
     about_me="🌟 Coding enthusiast | 🎮 Gamer | 🌍 Traveler"
 )
 
-# 5. Change status with custom text and emoji
-ProfileEditor.change_status(
+if bio_response['success']:
+    print("✅ Bio updated successfully!")
+    print(f"New bio: {bio_response['data'].get('bio')}")
+else:
+    print(f"❌ Bio update failed: {bio_response['error']['message']}")
+
+# 5. Set custom status
+status_response = profile_editor.change_status(
     token="USER_TOKEN_HERE",
-    status_type="dnd",  # online/idle/dnd/invisible
+    status_type="dnd",
     custom_text="Busy coding",
     emoji={
-        'name': '💻',  # Unicode emoji
-        'id': None     # ID required for custom emojis
-    }
+        'name': '💻',  # For custom emojis: 'name': 'emoji_name', 'id': 'emoji_id'
+        'id': None
+    },
+    proxy=proxy  # Remove if not needed
 )
 
-# Server Editor Examples (Requires Nitro for server avatars)
-# ----------------------
+if status_response['success']:
+    print("✅ Status updated successfully!")
+    print(f"New status: {status_response['data'].get('custom_status', {}).get('text')}")
+else:
+    print(f"❌ Status update failed: {status_response['error']['message']}")
 
-# 1. Change server-specific avatar (server profile picture) // nitro required
-ServerEditor.change_avatar(
+# Server Editor Examples
+# ------------------------
+
+# 1. Change server avatar (Nitro required)
+server_avatar_response = server_editor.change_avatar(
     token="USER_TOKEN_HERE",
     guild_id="SERVER_ID_HERE",
     link="https://example.com/server_avatar.png"
 )
 
-# 2. Change server nickname (nick name)
-ServerEditor.change_nick(
+if server_avatar_response['success']:
+    print("✅ Server avatar updated successfully!")
+    print(f"New server avatar: {server_avatar_response['data'].get('avatar')}")
+else:
+    print(f"❌ Server avatar update failed: {server_avatar_response['error']['message']}")
+
+# 2. Change server nickname
+nick_response = server_editor.change_nick(
     token="USER_TOKEN_HERE",
     guild_id="SERVER_ID_HERE",
     nick="[VIP] Cool User"
 )
+
+if nick_response['success']:
+    print("✅ Nickname updated successfully!")
+    print(f"New nickname: {nick_response['data'].get('nick')}")
+else:
+    print(f"❌ Nickname update failed: {nick_response['error']['message']}")
