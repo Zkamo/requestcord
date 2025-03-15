@@ -1,4 +1,4 @@
-from requestcord import Build, Session
+from requestcord import Build, SessionID
 
 # Build Class Examples
 # --------------------
@@ -21,7 +21,7 @@ print(f"All Builds (Web, x86, Native): {all_builds}")
 # ---------------------
 
 # Initialize session with current web build
-session = Session()
+session = SessionID()
 
 try:
     # Get session ID using valid token
