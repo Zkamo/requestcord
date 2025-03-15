@@ -1,4 +1,11 @@
-from requestcord import *
+from json        import   dumps, loads
+from re          import   findall, search
+
+from curl_cffi   import   requests
+from websocket   import   WebSocket
+
+from requestcord import   Logger, Build
+
 logger = Logger(level='INF')
 
 class Build:
@@ -11,7 +18,7 @@ class Build:
         """Fetch the build number from the Discord web app page."""
         try:
             page = requests.get(Build.WEB_APP_URL).text
-            assets = re.findall(r'src="/assets/([^"]+)"', page)
+            assets = findall(r'src="/assets/([^"]+)"', page)
             
             for asset in reversed(assets):
                 js = requests.get(f"{Build.BASE_URL}/assets/{asset}").text
@@ -33,7 +40,7 @@ class Build:
                 allow_redirects=False
             )
             redirect_url = response.headers.get('Location', '')
-            version_match = re.search(fr'{arch}/(.*?)/', redirect_url)
+            version_match = search(fr'{arch}/(.*?)/', redirect_url)
             return version_match.group(1) if version_match else ''
         
         except requests.RequestException as e:
@@ -61,7 +68,7 @@ class Build:
             self.get_native()
         )
 
-class Session:
+class SessionID:
     def __init__(self):
         self.ws = WebSocket()
         self.current_build = Build.get_web()
