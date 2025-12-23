@@ -46,7 +46,7 @@ Quick Example
 
 .. code:: py
 
-    from src.requestcord import SyncClient, JoinGuildPayload
+    from requestcord import SyncClient, JoinGuildPayload
     
     client = SyncClient()
     
