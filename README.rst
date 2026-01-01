@@ -61,7 +61,7 @@ Quick Example
 
 
 Links
-------
+------ 
 
 - `Documentation <https://requestcord.eu/>`_
 - `Official Discord Server <https://discord.gg/hM5VE7XDKr>`_
