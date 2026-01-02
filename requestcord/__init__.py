@@ -1,11 +1,15 @@
-from . import sync_api
-from .sync_api.client import SyncClient
 from .sync_api import *
+from .utils import *
+from . import payloads
 
-__all__ = (
-    "SyncClient",
-    *sync_api.__all__,
-)
+from .sync_api import __all__ as _sync_all
+from .utils import __all__ as _utils_all
 
-__version__ = "2.0.0"
-__author__ = "Zkamo, VatosV2"
+__all__ = [
+    *_sync_all,
+    *_utils_all,
+    "payloads",
+]
+
+__version__ = "2.0.1"
+__author__ = "Zkamo & VatosV2"

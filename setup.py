@@ -6,7 +6,7 @@ def readme():
     return README
 setup(
     name="requestcord",
-    version="2.0.0",
+    version="2.0.1",
     packages=find_packages(),
     install_requires=[
         "curl-cffi",
@@ -27,5 +27,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.11,<3.14"
+    python_requires=">3.10"
 )

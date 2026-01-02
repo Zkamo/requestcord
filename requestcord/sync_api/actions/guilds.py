@@ -49,7 +49,7 @@ class GuildActions:
         return self._http.delete(
             path=path,
             token=payload.token,
-            json={""},
+            json={},
             context="Leave Guild",
         )
 
